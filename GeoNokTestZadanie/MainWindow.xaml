@@ -33,12 +33,12 @@
         <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="150" TextWrapping="Wrap" Text="Введите свое имя на русском или английском языке"/>
         <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"  TextWrapping="Wrap" TextAlignment="Center" Width="120" Text="Введите/выберите дату рождения"/>
 
-        <ComboBox Grid.Row="2" Grid.Column="1" Width="140" Height="20" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="ComboLan" Grid.Row="2" Grid.Column="1" Width="140" Height="20" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="Русский"/>
             <ComboBoxItem Content="Английский"/>
         </ComboBox>
-        <TextBox Grid.Row="3" Grid.Column="1" Width="140" Height="40" HorizontalAlignment="Left"/>
-        <DatePicker Grid.Row="4" Grid.Column="1" Width="140" Height="25" HorizontalAlignment="Left"/>
+        <TextBox x:Name="BoxName" Grid.Row="3" Grid.Column="1" Width="140" Height="40" HorizontalAlignment="Left"/>
+        <DatePicker x:Name="DatePick" Grid.Row="4" Grid.Column="1" Width="140" Height="25" HorizontalAlignment="Left"/>
 
         <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="3">
             <Grid.RowDefinitions>
@@ -52,13 +52,13 @@
                 <TextBlock Text="Сгенерировать логин"/>
             </Border>
             <TextBlock Grid.Row="1" Text="Ваш логин" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBox Grid.Row="1" Width="170" Height="35" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="GenTextLog" Grid.Row="1" IsReadOnly="True" Width="170" Height="35" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 
             <Border Grid.Row="2" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Width="160" Height="25" MouseUp="GenPas">
                 <TextBlock Text="Сгенерировать пароль"/>
             </Border>
             <TextBlock Grid.Row="3" Text="Ваш пароль" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBox Grid.Row="3" Width="170" Height="35" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="GenTextPas" Grid.Row="3" IsReadOnly="True" Width="170" Height="35" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         </Grid>
         <Border Grid.Row="5" Grid.Column="0" CornerRadius="5" BorderThickness="1" BorderBrush="Black" Width="160" Height="25" MouseUp="Save">
             <TextBlock Text="Сохранить"/>
