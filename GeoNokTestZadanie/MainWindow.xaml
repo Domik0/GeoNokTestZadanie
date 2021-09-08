@@ -38,7 +38,7 @@
             <ComboBoxItem Content="Английский"/>
         </ComboBox>
         <TextBox x:Name="BoxName" Grid.Row="3" Grid.Column="1" Width="140" Height="40" HorizontalAlignment="Left" SelectionChanged="BoxName_SelectionChanged"/>
-        <DatePicker x:Name="DatePick" Grid.Row="4" Grid.Column="1" Width="140" Height="25" HorizontalAlignment="Left"/>
+        <DatePicker x:Name="DatePick" Grid.Row="4" Grid.Column="1" Width="140" Height="25" HorizontalAlignment="Left" SelectedDateChanged="DatePick_SelectedDateChanged"/>
 
         <Grid Grid.Row="2" Grid.Column="2" Grid.RowSpan="3">
             <Grid.RowDefinitions>

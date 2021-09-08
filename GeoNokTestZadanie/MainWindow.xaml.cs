@@ -141,5 +141,13 @@ namespace GeoNokTestZadanie
                 BoxName.Text = tmpStr;
             }
         }
+
+        private void DatePick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(DatePick.SelectedDate > DateTime.Now)
+            {
+                DatePick.SelectedDate = null;
+            }
+        }
     }
 }
