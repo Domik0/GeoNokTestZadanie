@@ -22,6 +22,7 @@ namespace GeoNokTestZadanie
     public partial class MainWindow : Window
     {
         int flagLanguage = 0;
+        string tmpStr = "";
 
         public MainWindow()
         {
@@ -73,29 +74,71 @@ namespace GeoNokTestZadanie
 
         private void Save(object sender, MouseButtonEventArgs e)
         {
+            App.dbContext.users.Add(new user()
+            {
+                login = GenTextLog.Text,
+                password = GenTextPas.Text,
+                name = BoxName.Text,
+                date = DatePick.SelectedDate
+            });
             App.dbContext.SaveChanges();
         }
 
         private void Clear(object sender, MouseButtonEventArgs e)
         {
             ComboLan.SelectedItem = null;
-            BoxName.Clear();
+            BoxName.Text = "";
             DatePick.SelectedDate = null;
-            GenTextLog.Clear();
-            GenTextPas.Clear();
+            GenTextLog.Text = "";
+            GenTextPas.Text = "";
+            flagLanguage = 0;
+            tmpStr = "";
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((string)(e.AddedItems[0] as ComboBoxItem).Content == "Русский")
+            if(ComboLan.SelectedItem != null)
             {
-                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("ru-RU"));
-                flagLanguage = 1;
+                if ((string)(e.AddedItems[0] as ComboBoxItem).Content == "Русский")
+                {
+                    //InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("ru-RU"));
+                    flagLanguage = 1;
+                }
+                else
+                {
+                    //InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("en-US"));
+                    flagLanguage = 2;
+                }
+            }
+        }
+
+        private void BoxName_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (flagLanguage == 1)
+            {
+                if (!Regex.IsMatch(BoxName.Text, @"^[А-Яа-я]+$"))
+                {
+                    BoxName.Text = tmpStr;
+                }
+                else
+                {
+                    tmpStr = BoxName.Text;
+                }
+            }
+            else if (flagLanguage == 2)
+            {
+                if (!Regex.IsMatch(BoxName.Text, @"^[A-Za-z]+$"))
+                {
+                    BoxName.Text = tmpStr;
+                }
+                else
+                {
+                    tmpStr = BoxName.Text;
+                }
             }
             else
             {
-                InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("en-US"));
-                flagLanguage = 2;
+                BoxName.Text = tmpStr;
             }
         }
     }
