@@ -13,5 +13,6 @@ namespace GeoNokTestZadanie
     /// </summary>
     public partial class App : Application
     {
+        public geonoktestzadanieEntities dbContext = new geonoktestzadanieEntities();
     }
 }

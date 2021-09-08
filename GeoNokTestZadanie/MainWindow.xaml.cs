@@ -24,5 +24,37 @@ namespace GeoNokTestZadanie
         {
             InitializeComponent();
         }
+
+        private void GenLogin(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void GenPas(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Save(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Clear(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if ((string)(e.AddedItems[0] as ComboBoxItem).Content == "Русский")
+            //{
+            //    InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("ru-RU"));
+            //}
+            //else
+            //{
+            //    InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new System.Globalization.CultureInfo("en-US"));
+            //}
+        }
     }
 }
